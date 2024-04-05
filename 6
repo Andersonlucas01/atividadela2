@@ -1,0 +1,33 @@
+const readline = require('readline');
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+let menor = Number.MAX_VALUE;
+let maior = Number.MIN_VALUE;
+let soma = 0;
+
+for (let i = 0; i < n; i++) {
+  rl.question(`Digite o ${i + 1}º número: `, (numero) => {
+    numero = parseInt(numero);
+
+    if (numero < menor) {
+      menor = numero;
+    }
+
+    if (numero > maior) {
+      maior = numero;
+    }
+
+    soma += numero;
+
+    if (i === n - 1) {
+      console.log(`Menor valor: ${menor}`);
+      console.log(`Maior valor: ${maior}`);
+      console.log(`Soma dos valores: ${soma}`);
+      rl.close();
+    }
+  });
+}
