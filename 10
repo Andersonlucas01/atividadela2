@@ -1,0 +1,32 @@
+const readline = require('readline');
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+rl.question('Digite um número: ', (numero) => {
+  let primos = [];
+  let divisoes = 0;
+
+  for (let i = 2; i <= numero; i++) {
+    let ehPrimo = true;
+
+    for (let j = 2; j < i; j++) {
+      divisoes++;
+      if (i % j === 0) {
+        ehPrimo = false;
+        break;
+      }
+    }
+
+    if (ehPrimo) {
+      primos.push(i);
+    }
+  }
+
+  console.log(`Números primos entre 1 e ${numero}: ${primos.join(', ')}`);
+  console.log(`Total de divisões: ${divisoes}`);
+
+  rl.close();
+});
