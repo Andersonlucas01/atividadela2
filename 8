@@ -1,0 +1,33 @@
+const readline = require('readline');
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+let continuar = true;
+
+while (continuar) {
+  rl.question('Digite um número (ou 0 para sair): ', (numero) => {
+    numero = parseInt(numero);
+
+    if (numero === 0) {
+      continuar = false;
+      rl.close();
+      return;
+    }
+
+    if (numero < 0 || numero > 15) {
+      console.log('Número inválido! Digite um número entre 0 e 15.');
+      continue;
+    }
+
+    let fatorial = 1;
+
+    for (let i = 1; i <= numero; i++) {
+      fatorial *= i;
+    }
+
+    console.log(`O fatorial de ${numero} é ${fatorial}`);
+  });
+}
