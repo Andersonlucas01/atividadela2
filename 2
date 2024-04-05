@@ -1,0 +1,25 @@
+const readline = require('readline');
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+let pares = 0;
+let impares = 0;
+
+for (let i = 0; i < 10; i++) {
+  rl.question(`Digite o ${i + 1}º número: `, (numero) => {
+    if (numero % 2 === 0) {
+      pares++;
+    } else {
+      impares++;
+    }
+
+    if (i === 9) {
+      console.log(`Quantidade de números pares: ${pares}`);
+      console.log(`Quantidade de números ímpares: ${impares}`);
+      rl.close();
+    }
+  });
+}
